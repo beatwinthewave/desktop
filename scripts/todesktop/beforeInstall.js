@@ -22,7 +22,7 @@ module.exports = async ({ pkgJsonPath, pkgJson, appDir, hookName }) => {
 
         // Download git
         // TODO: Move to the installer, if current dist infra permits it
-        const res = spawnSync('where.exe', 'git')
+        const res = spawnSync('where.exe', ['git'])
         if (res.status !== 0) spawnSync('curl', ['-s', 'https://github.com/git-for-windows/git/releases/download/v2.47.1.windows.1/Git-2.47.1-64-bit.exe'], { shell:true, stdio: 'ignore' }).toString();
     }
 };

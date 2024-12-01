@@ -212,6 +212,9 @@ const electronAPI = {
   installComfyUI: (installOptions: InstallOptions) => {
     ipcRenderer.send(IPC_CHANNELS.INSTALL_COMFYUI, installOptions);
   },
+  restoreCustomNodes: () => {
+    return ipcRenderer.invoke(IPC_CHANNELS.RESTORE_CUSTOM_NODES);
+  },
 } as const;
 
 export type ElectronAPI = typeof electronAPI;
